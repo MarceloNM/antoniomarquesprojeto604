@@ -1,0 +1,116 @@
+/* antónio marcelo nicolau marques */
+:root {
+    --cor-fundo: rgb(9, 181, 38);
+    --cor-quadro: brown;
+    --cor-border-quadro: rgb(212, 199, 8);
+    --cor-conta: rgb(0, 0, 0);
+    --cor-conta-over: rgb(141, 3, 3);
+    --cor-conta-esq: gray;
+    --cor-conta-dir: rgb(238, 236, 236);
+    --cor-eixo: rgb(171, 136, 8);
+    --cor-eixo-dir:  rgb(240, 191, 10);
+    --cor-eixo-esq:  rgb(114, 90, 3);
+    --with-conta: 80%; 
+}
+
+.quadro {
+  display: grid;
+  grid-template-columns: 3% repeat(13, auto) 3%;
+  grid-template-rows: 7% repeat(4, auto) 7% repeat(8, auto) 7%;
+  /*grid-gap: 0px;*/
+  background-color: var(--cor-fundo);
+  padding: 20px;
+  max-width:720px;  /* 500px*/
+}
+
+.quadro > div {
+  /*background-color: rgba(255, 255, 255, 0.8);*/
+  text-align: center;
+  /*padding: 20px 0;*/
+  font-size: 16px ;
+  /*height: 10px;*/
+}
+
+
+.cse, .csd, .cie, .cid, .exe, .exd, .lh, .lv {
+	background-color: var(--cor-quadro);
+  border-style: solid;
+  border-width: 0px;
+  border-color: var(--cor-border-quadro);
+}
+
+.cse {
+  border-top-width: 1px;
+  border-left-width: 1px;
+}
+
+.csd{
+  border-top-width: 1px;
+  border-right-width: 1px;
+}
+.cie{
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+}
+.cid{
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+}
+.exe{
+  border-left-width: 1px;
+}
+.exd{
+  border-right-width: 1px;
+}
+.lh{
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+.lv{
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
+
+.eixo, .conta, .contaover {
+  text-align: center;
+  margin: 0 auto;
+  width: 9%;
+  height: 100%;
+  background: var(--cor-eixo);
+  background-position: center;
+  border-style: solid;
+  border-width: 0px;
+  border-right-width: 2px;
+  border-right-color: var(--cor-eixo-dir);
+  border-left-width: 1px;
+  border-left-color: var(--cor-eixo-esq);
+}
+
+.conta, .contaover {
+  width: var(--with-conta);
+  background: var(--cor-conta);
+  border-radius: 50%;
+  border-right-width: 2px;
+  border-left-width: 1px;
+  border-right-color: var(--cor-conta-dir);
+  border-left-color: var(--cor-conta-esq);
+}
+.contaover {
+    background: var(--cor-conta-over);
+}
+
+
+/* Solução de rotação encontrada em https://stackoverflow.com/questions/50674180/css-screen-orientation-webapp-rotation */ 
+@media screen /*and (min-width: 320px)*/ and (max-width: 767px) and (orientation: portrait) {
+    html {
+        transform: rotate(-90deg);
+        transform-origin: left top;
+        width: 100vh;
+        height: auto;
+        overflow-x: hidden;
+        position: absolute;
+        top: 100%;
+        left: 0px;
+    }
+}
+
