@@ -25,7 +25,7 @@ const matriz = [{ qt:1, com: [{classe: "cse", qt: 1},
                                 {classe: "eixo", qt: 13},
                                 {classe: "lv", qt: 1}]},
                 { qt:1, com: [{classe: "exe", qt: 1},
-                                {classe: "lh", qt: 13},
+                                {classe: "lx", qt: 13},
                                 {classe: "exd", qt: 1}]},
                 { qt:3, com: [{classe: "lv", qt: 1},
                                 {classe: "eixo", qt: 13},
@@ -233,7 +233,7 @@ function moveConta (esteID) {
             }
         }
     }
-
+    mostraNumero();
     // subirContaInferior(esteID);
     // descerContaSuperior(esteID);
     // moveUpConta(esteID);
@@ -256,6 +256,10 @@ function tabuleiro() {  // cria o ábaco em DOM
                     const cell = document.createElement('div');
                     quadro.appendChild(cell);
                     cell.classList.add(peca.classe);
+                    if (peca.classe == 'lx') {
+                        cell.id = pos2id([24,j]);
+                        abaco.set(cell.id, cell);
+                    }
                     if (peca.classe == 'conta' || peca.classe == 'eixo'){
                         cell.id = int2id(contador);
                         abaco.set(cell.id, cell);
@@ -273,6 +277,14 @@ function tabuleiro() {  // cria o ábaco em DOM
     }
 }
 
+function mostraNumero() {
+    let esteID = '';
+    for (let [pos,num] of total.entries()){
+        esteID = pos2id([24,12-pos]);
+        const local = abaco.get(esteID);
+        local.innerHTML = num;
+    }
+}
 
 const subirContaInferior = (esteID) => {
     let localID = esteID; 

@@ -32,7 +32,7 @@
 }
 
 
-.cse, .csd, .cie, .cid, .exe, .exd, .lh, .lv {
+.cse, .csd, .cie, .cid, .exe, .exd, .lh, .lx, .lv {
 	background-color: var(--cor-quadro);
   border-style: solid;
   border-width: 0px;
@@ -58,13 +58,15 @@
 }
 .exe{
   border-left-width: 1px;
+
 }
 .exd{
   border-right-width: 1px;
 }
-.lh{
+.lh, .lx{
   border-top-width: 1px;
   border-bottom-width: 1px;
+  color:aliceblue;
 }
 .lv{
   border-left-width: 1px;
